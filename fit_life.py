@@ -10,18 +10,19 @@ user_name = input("Введите ваше имя: ").strip()
 try:
     user_age = int(input("Введите ваш возраст: "))
 except ValueError:
-    print("Ошибка: возраст должен быть числом.")
-    user_age = 0
+    raise ValueError("Ошибка: возраст должен быть целым числом.")
 
 
 # 2. Сбор данных
 try:
     user_weight = float(input("Введите вес (кг): "))
+except ValueError:
+    raise ValueError("Ошибка: вес должен быть числом, например 75.5")
+
+try:
     user_height = float(input("Введите рост (в метрах, например 1.75): "))
 except ValueError:
-    print("Ошибка: вес и рост должны быть числами.")
-    user_weight = 0.0
-    user_height = 1.0
+    raise ValueError("Ошибка: рост должен быть числом, например 1.75")
 
 
 # 3. Логика расчетов
